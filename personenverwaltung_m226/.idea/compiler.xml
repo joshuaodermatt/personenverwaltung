@@ -11,4 +11,9 @@
       </profile>
     </annotationProcessing>
   </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="personenverwaltung_m226" options="--add-exports jdk.internal.vm.compiler/org.graalvm.compiler.phases.common=ALL-UNNAMED --add-exports java.desktop/com.apple.eawt=ALL-UNNAMED" />
+    </option>
+  </component>
 </project>
