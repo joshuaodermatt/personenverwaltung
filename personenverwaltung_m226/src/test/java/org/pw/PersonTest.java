@@ -53,6 +53,6 @@ public class PersonTest extends TestCase {
 
         assertTrue(errorTooHighOccured);
         assertTrue(errorTooLowOccured);
-        assertEquals(correct, p.getSalaer());
+        assertEquals(correct, p.getSalaer() );
     }
 }

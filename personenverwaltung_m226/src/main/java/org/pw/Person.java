@@ -1,6 +1,11 @@
 package org.pw;
 
+import java.util.Calendar;
+import java.util.Date;
+import java.util.GregorianCalendar;
+
 public class Person {
+    private static int sAnzahlPersonen = 0;
     private int PersNr;
     private String Anrede;
     private String Name;
@@ -12,6 +17,46 @@ public class Person {
     private double Pensum;
     final int minEintrittsjahr = 1975;
     final double maxSalaer = 99999.95;
+
+    public Person() {
+        PersNr = -1;
+        Anrede = "Frau";
+        Name = "Neue person";
+        Plz = "6000";
+        Ort = "Luzern";
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(new Date());
+        Eintrittsjahr = calendar.get(Calendar.YEAR);
+        Salaer = 5000;
+        Pensum = 100;
+        Person.sAnzahlPersonen ++;
+    }
+
+    public Person(int persNum) {
+        PersNr = persNum;
+        Person.sAnzahlPersonen ++;
+    }
+
+    public Person(int persNum, String Anrede, String Name, String Vorname) {
+        PersNr = persNum;
+        this.Anrede = Anrede;
+        this.Name = Name;
+        this.Vorname = Vorname;
+        Person.sAnzahlPersonen ++;
+    }
+
+    public Person(int persNum, String Anrede, String Name, String Vorname, int Eintritsjahr) {
+        PersNr = persNum;
+        this.Anrede = Anrede;
+        this.Name = Name;
+        this.Vorname = Vorname;
+        this.Eintrittsjahr = Eintritsjahr;
+        Person.sAnzahlPersonen ++;
+    }
+
+    public static double CalculateLohn(double salaer, int pensum) {
+        return (salaer / 100) * pensum;
+    }
 
     public int getPersNr() {
         return PersNr;
