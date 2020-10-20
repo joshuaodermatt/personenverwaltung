@@ -33,12 +33,12 @@ public class Person {
     }
 
     public Person(int persNum) {
-        PersNr = persNum;
+        PersNr = Person.sAnzahlPersonen;
         Person.sAnzahlPersonen ++;
     }
 
     public Person(int persNum, String Anrede, String Name, String Vorname) {
-        PersNr = persNum;
+        PersNr = Person.sAnzahlPersonen;
         this.Anrede = Anrede;
         this.Name = Name;
         this.Vorname = Vorname;
