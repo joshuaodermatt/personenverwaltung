@@ -55,4 +55,8 @@ public class PersonTest extends TestCase {
         assertTrue(errorTooLowOccured);
         assertEquals(correct, p.getSalaer() );
     }
+
+    public void testCalculateLohn() {
+        assertEquals(100.0, Person.CalculateLohn(1000, 10));
+    }
 }
