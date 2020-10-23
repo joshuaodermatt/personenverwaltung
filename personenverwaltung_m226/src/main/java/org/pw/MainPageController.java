@@ -56,38 +56,42 @@ public class MainPageController {
 
     public void initialize() {
         for (int i = 0; i < 3; i++)
-            this.allPersons.add(new Person(1));
-        fillForm(this.position);
+            allPersons.add(new Person(1));
+        fillForm();
     }
 
+    @FXML
     private void onButtonFirstClicked() {
-        fillForm(this.position);
+        position = 0;
+        fillForm();
     }
 
+    @FXML
     private void onButtonLastClicked() {
-        this.position = this.allPersons.size() - 1;
-        fillForm(this.position);
+        position = allPersons.size() - 1;
+        fillForm();
     }
 
+    @FXML
     private void onButtonOneLeftClicked() {
-        if(this.position != 0) {
-            fillForm(this.allPersons.size() - 1);
-        }
+        position--;
+        fillForm();
     }
 
+    @FXML
     private void onButtonOneRightClicked() {
-
+        position++;
+        fillForm();
     }
 
-    private void fillForm(int pos) {
-        this.position = pos;
-        Person personToShow = this.allPersons.get(pos);
-        this.TextFieldPosition.setText(pos + 1 + "/" + this.allPersons.size());
+    private void fillForm() {
+        Person personToShow = this.allPersons.get(position);
+        this.TextFieldPosition.setText(position + 1 + "/" + this.allPersons.size());
         this.TextFieldPNr.setText(String.valueOf(personToShow.getPersNr()));
         this.TextFieldName.setText(personToShow.getName());
         this.TextFieldFirstName.setText(personToShow.getVorname());
         Logger.personDisplaying(personToShow);
-        if(this.position == )
+
     }
 
 
