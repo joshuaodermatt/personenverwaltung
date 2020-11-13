@@ -53,10 +53,8 @@ public class MainPageController {
 
     private int position = 0;
 
-
     public void initialize() {
-        for (int i = 0; i < 3; i++)
-            allPersons.add(new Person(1));
+        for (int i = 0; i < 3; i++) allPersons.add(new Person(1));
         fillForm();
     }
 
@@ -74,18 +72,23 @@ public class MainPageController {
 
     @FXML
     private void onButtonOneLeftClicked() {
-        position--;
-        fillForm();
+        if(position > 0) {
+            position--;
+            fillForm();
+        }
+
     }
 
     @FXML
     private void onButtonOneRightClicked() {
-        position++;
-        fillForm();
+        if(position < allPersons.size() - 1) {
+            position++;
+            fillForm();
+        }
     }
 
     private void fillForm() {
-        Person personToShow = this.allPersons.get(position);
+        Person personToShow = allPersons.get(position);
         this.TextFieldPosition.setText(position + 1 + "/" + this.allPersons.size());
         this.TextFieldPNr.setText(String.valueOf(personToShow.getPersNr()));
         this.TextFieldName.setText(personToShow.getName());
@@ -93,6 +96,12 @@ public class MainPageController {
         Logger.personDisplaying(personToShow);
 
     }
+
+    private void incrementPos(){
+
+    }
+
+
 
 
 }
